@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Models Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-controls">
+                <label>
+                    <input type="radio" name="dataSource" value="sample.json" checked>
+                    JSON 1
+                </label>
+                <label>
+                    <input type="radio" name="dataSource" value="sample2.json">
+                    JSON 2
+                </label>
+                <label>
+                    <input type="radio" name="dataSource" value="sample3.json">
+                    JSON 3
+                </label>
+            </div>
+        </header>
+        <h1>Car Models Viewer</h1>
+        <div class="viewer">
+            <div class="brands" id="brands"></div>
+            <div class="models" id="models"></div>
+            <div class="years" id="years"></div>
+            <div class="images" id="images"></div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
