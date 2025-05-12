@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    display: flex; /* Використовуємо flex-контейнер для вирівнювання блоків */
+    flex-direction: row; /* Розташування блоків у ряд */
+    height: 100vh; /* Встановлюємо висоту сторінки */
 }
 
 header {
@@ -24,12 +27,21 @@ header {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 70%; /* Лівий блок займає 70% ширини */
+    height: 100%; /* Займає всю висоту сторінки */
     padding: 20px;
     background: #fff;
-    border-radius: 8px;
+    border-right: 1px solid #ddd; /* Додаємо роздільну лінію */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Додаємо прокрутку, якщо контент перевищує висоту */
+}
+
+.gallery-container {
+    width: 30%; /* Галерея займає 30% ширини */
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Додаємо прокрутку для вертикального перегляду */
 }
 
 h1 {
@@ -38,17 +50,18 @@ h1 {
 }
 
 .viewer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr;
-    gap: 10px;
+    display: flex; /* Використовуємо flex-контейнер */
+    gap: 10px; /* Відстань між блоками */
+    height: 100%; /* Розтягуємо на всю висоту контейнера */
 }
 
 .viewer div {
+    flex: 1; /* Рівномірний розподіл простору між блоками */
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
-    overflow-y: auto;
-    max-height: 400px;
+    overflow-y: auto; /* Додаємо вертикальну прокрутку для вмісту */
+    box-sizing: border-box; /* Включає padding у ширину та висоту блоку */
 }
 
 button {
@@ -69,19 +82,19 @@ button:hover {
 
 .images {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Збільшено мінімальну ширину */
-    gap: 20px; /* Збільшено відстань між картинками */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Збільшено мінімальну ширину */
+    gap: 15px; /* Відстань між картинками */
     padding: 10px;
 }
 
 .images img {
     width: 100%; /* Картинки займають всю ширину контейнера */
-    height: 200px; /* Збільшена висота для сталого формату */
+    height: 150px; /* Збільшена висота */
     object-fit: cover; /* Обрізання зображення для збереження пропорцій */
-    border-radius: 8px; /* Збільшено радіус для закруглення */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Більш виражена тінь */
-    cursor: pointer; /* Вказівник змінюється на руку при наведенні */
-    transition: transform 0.2s ease; /* Додано ефект при наведенні */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .images img:hover {
@@ -96,16 +109,26 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-
+    
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8); /* Напівпрозорий чорний фон */
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 90%;
+    width: 80%; /* Фіксована ширина, можна змінити за потреби */
+    height: auto; /* Автоматична висота для збереження пропорцій */
+    max-width: 600px; /* Максимальна ширина */
+    max-height: 400px; /* Максимальна висота */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
